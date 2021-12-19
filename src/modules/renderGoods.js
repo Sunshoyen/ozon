@@ -1,11 +1,11 @@
 const renderGoods = (goods) => {
 
-    goodsWrapper.innerHTML = ''
-
-    goods.forEach((goodsItem) => {
 
         const goodsWrapper = document.querySelector('.goods')
 
+		goodsWrapper.innerHTML = ''
+		
+		goods.forEach((goodsItem) => {
         goodsWrapper.insertAdjacentHTML('beforeend', `
         
         <div class="col-12 col-md-6 col-lg-4 col-xl-3">

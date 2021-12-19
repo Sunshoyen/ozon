@@ -3,9 +3,7 @@ import postData from "./postData";
 import renderGoods from "./renderGoods";
 
 const load = () => {
-
             getData() .then ((data) =>{
-                
                 renderGoods(data)
             })
 
