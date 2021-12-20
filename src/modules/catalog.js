@@ -1,40 +1,34 @@
-import getData from "./getData"
-import renderGoods from "./renderGoods"
-import { categoryFilter } from "./filter"
+import getData from "./getData";
+import renderGoods from "./renderGoods";
+import { categoryFilter } from "./filters";
 
-const catalog = () =>{
-
-
+const catalog = () => {
     const btnCatalog = document.querySelector('.catalog-button > button')
-    const catalogModal = document.querySelector('.catalog ')
+    const catalogModal = document.querySelector('.catalog')
     const catalogModalItems = document.querySelectorAll('.catalog li')
 
-    let isOpen = false 
+    let isOpen = false
 
-    btnCatalog.addEventListener('click', () =>{
+    btnCatalog.addEventListener('click', () => {
         isOpen = !isOpen
 
-        if (isOpen){
-            catalogModal.style.display = 'flex'
+        if (isOpen) {
+            catalogModal.style.display = 'block'
         } else {
             catalogModal.style.display = ''
         }
-
-
     })
 
-    catalogModalItems.forEach(item =>{
-        item.addEventListener('click', () =>{
+    catalogModalItems.forEach(item => {
+        item.addEventListener('click', () => {
             const text = item.textContent
 
-
-            getData() .then ((data) =>{
-                renderGoods (categoryFilter(data, text))
+            getData().then((data) => {
+                renderGoods(categoryFilter(data, text))
             })
+            console.log(item)
         })
     })
-
-
 }
 
 export default catalog
